@@ -10,8 +10,8 @@ import HelloWorld from './components/HelloWorld.vue'
     <BarChart />
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
+        <RouterLink to="/">Graph 1</RouterLink>
+        <RouterLink to="/about">Graph 2</RouterLink>
       </nav>
     </div>
   </header>
