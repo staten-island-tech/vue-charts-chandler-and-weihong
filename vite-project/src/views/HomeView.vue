@@ -1,59 +1,30 @@
 <template>
-  <div class="container"></div>
-  <p ref="ChartData">hello</p>
+  <Bar
+    id="my-chart-id"
+    :options="chartOptions"
+    :data="chartData"
+  />
 </template>
 
-<script setup>
-const APIdata = 'https://data.cityofnewyork.us/resource/f9bf-2cp4.json'
-
-const ChartData = ref(APIdata)
-
-import { ref, onMounted } from 'vue'
+<script>
 import { Bar } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-const fetchdata = async () => {
-  try {
-    const response = await fetch(APIdata)
-    if (!response.ok) {
-      throw new Error('response not work')
-    }
-    const data = await response.json()
-    ChartData.value = data
-    Chart()
-  } catch (error) {
-    console.error('error fetching data:')
-  }
-}
-
-
-
-const Chart = {
-  name: 'Bar',
-  Components: { Bar },
-  data:()=>({
-    loaded: false,
-    chartData:null
-  }),
-   async mounted (){
-    this.loaded = false
-    try{
-      const { userlist } = await fetch(fetchdata)
-      this.chartdata = userlist
-      this.loaded = true
-    } catch (e){
-      console.error(e)
+export default {
+  name: 'BarChart',
+  components: { Bar },
+  data() {
+    return {
+      chartData: {
+        labels: [ 'January', 'February', 'March' ],
+        datasets: [ { data: [40, 20, 12] } ]
+      },
+      chartOptions: {
+        responsive: true
+      }
     }
   }
 }
-
-onMounted(()=> {
-  ChartData.value.textContent = 'thing'
-})
-console.log(Chart)
 </script>
-Chart
-
-<style lang="scss" scoped></style>
