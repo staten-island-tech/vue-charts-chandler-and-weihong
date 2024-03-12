@@ -62,7 +62,7 @@ async function score(){
 onMounted(()=>{
   score()
 })
-console.log(APIdata.school_name)
+console.log(thing.dbn)
 </script>
 Chart
 
