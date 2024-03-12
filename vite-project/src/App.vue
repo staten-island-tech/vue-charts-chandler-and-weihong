@@ -1,9 +1,15 @@
 <template>
-  <BarChart />
+  <div>
+<BarChart/>
+  </div>
 </template>
 
 <script>
-import BarChart from './views/BarChart.vue';
+import { BarChart } from './BarChart.vue';
+export default {
+  name: 'App',
+  components: {BarChart}
+}
 </script>
 
 <style scoped>
