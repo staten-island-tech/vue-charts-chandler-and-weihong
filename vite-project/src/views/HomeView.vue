@@ -56,10 +56,8 @@ const Chart = {
 }
 
 onMounted(() => {
-  ChartData.value.textContent = '{}'
+  fetchdata()
 })
-
-console.log(thing.dbn)
 </script>
 Chart
 
