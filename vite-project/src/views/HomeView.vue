@@ -39,8 +39,8 @@ const fetchData = async () => {
       throw new Error('Network response was not ok')
     }
     const data = await response.json()
-    chartData.value.labels = data.map((item) => item.dbn)
-    chartData.value.datasets[0].data = data.map((item) => item.value)
+    chartData.value.labels = data.map((item) => item.sat_critical_reading_avg_score)
+    chartData.value.datasets[0].data = data.map((item) => item.sat_math_avg_score)
     renderChart()
   } catch (error) {
     console.error('Error fetching chart data:', error)
