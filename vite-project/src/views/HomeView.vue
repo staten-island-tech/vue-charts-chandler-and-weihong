@@ -1,13 +1,10 @@
 <template>
-  <div class="container"></div>
-  <p ref="ChartData">hello</p>
+  <div class="container">
+    <canvas ref="chartCanvas"></canvas>
+  </div>
 </template>
 
 <script setup>
-const APIdata = 'https://data.cityofnewyork.us/resource/f9bf-2cp4.json'
-
-const ChartData = ref(APIdata)
-
 import { ref, onMounted } from 'vue'
 import { Bar } from 'vue-chartjs'
 import {
@@ -22,43 +19,44 @@ import {
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
-const fetchdata = async () => {
+const chartData = ref({
+  labels: [],
+  datasets: [
+    {
+      label: 'Data',
+      borderWidth: 1,
+      data: []
+    }
+  ]
+})
+
+const chartCanvas = ref(null)
+
+const fetchData = async () => {
   try {
-    const response = await fetch(APIdata)
+    const response = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
     if (!response.ok) {
-      throw new Error('response not work')
+      throw new Error('Network response was not ok')
     }
     const data = await response.json()
-    ChartData.value = data
-    console.log(data.data)
+    chartData.value.labels = data.map((item) => item.dbn)
+    chartData.value.datasets[0].data = data.map((item) => item.value)
+    renderChart()
   } catch (error) {
-    console.error('error fetching data:')
+    console.error('Error fetching chart data:', error)
   }
 }
 
-const Chart = {
-  name: 'Bar',
-  Components: { Bar },
-  data: () => ({
-    loaded: false,
-    chartData: null
-  }),
-  async mounted() {
-    this.loaded = false
-    try {
-      const { userlist } = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
-      this.chartdata = userlist
-      this.loaded = true
-    } catch (e) {
-      console.error(e)
-    }
-  }
+const renderChart = () => {
+  if (!chartCanvas.value) return
+  new Bar(chartCanvas.value, {
+    data: chartData.value
+  })
 }
 
 onMounted(() => {
-  fetchdata()
+  fetchData()
 })
 </script>
-Chart
 
 <style lang="scss" scoped></style>
