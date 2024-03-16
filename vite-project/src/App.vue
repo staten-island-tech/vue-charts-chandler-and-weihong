@@ -1,15 +1,13 @@
 <template>
   <div>
-<BarChart/>
+    <HomeView/>
   </div>
 </template>
 
 <script>
-import { BarChart } from './BarChart.vue';
-export default {
-  name: 'App',
-  components: {BarChart}
-}
+const { default: HomeView } = require('./views/HomeView.vue');
+
+
 </script>
 
 <style scoped>

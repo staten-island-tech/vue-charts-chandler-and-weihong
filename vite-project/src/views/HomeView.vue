@@ -1,11 +1,15 @@
 <template>
   <div>
-
+<BarChart/>
   </div>
 </template>
 
-<script setup>
-
+<script>
+import { BarChart } from '';
+export default {
+  name: 'App',
+  components: {BarChart}
+}
 </script>
 
 <style scoped>
