@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <canvas ref="chartCanvas"></canvas>
+    <Bar v-if="loaded" :data="chartData" />
   </div>
 </template>
 
