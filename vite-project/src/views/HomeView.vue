@@ -1,5 +1,4 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
 import { ref,  } from 'vue';
 import {onBeforeMount} from 'vue';
 
@@ -23,6 +22,6 @@ onBeforeMount(() =>{
 
 <template>
   <main>
-    <TheWelcome />
+
   </main>
 </template>
