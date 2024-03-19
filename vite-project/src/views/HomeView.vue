@@ -1,20 +1,28 @@
-<template>
-  <div>
-<Bar v-if="loaded" :data="ChartData"></Bar>
-  </div>
-</template>
+<script setup>
+import TheWelcome from '../components/TheWelcome.vue'
+import { ref,  } from 'vue';
+import {onBeforeMount} from 'vue';
 
-<script>
-import {Bar} from 'vue-chartjs'
-import { Chart as ChartJS, Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale } from 'chart.js'
-export default {
-  setup () {
-    
-    return {}
-  }
-}
+const thing = ref('')
+async function thingy () {
+  try {
+  let fetchthing = await fetch ("https://data.cityofnewyork.us/resource/f9bf-2cp4.json")
+  let putasjson = await fetchthing.json();
+  thing.value = putasjson;
+  console.log(putasjson)
+}  
+catch (error) {
+  console.log ("error", error)
+}}
+onBeforeMount(() =>{
+    thingy();
+})
+
 </script>
 
-<style scoped>
 
-</style>
+<template>
+  <main>
+    <TheWelcome />
+  </main>
+</template>
