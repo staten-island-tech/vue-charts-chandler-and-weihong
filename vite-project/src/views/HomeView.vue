@@ -1,10 +1,9 @@
 <template>
-  <div class="container">
-  </div>
+  <Bar :data="thing"></Bar>
 </template>
 
 <script setup>
-import { ref, onMounted, onBeforeMount } from 'vue'
+import { ref, onBeforeMount, onMounted } from 'vue'
 import { Bar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -13,9 +12,9 @@ import {
   Legend,
   BarElement,
   CategoryScale,
-  LinearScale
+  LinearScale,
+Chart
 } from 'chart.js'
-import { compileScript } from 'vue/compiler-sfc';
 
 ChartJS.register(Title, Tooltip, Legend, BarElement, CategoryScale, LinearScale)
 
@@ -32,33 +31,47 @@ catch (error) {
 }}
 onBeforeMount(() =>{
     thingy();
-})
+});
 
-// const fetchData = async () => {
-//   try {
-//     const response = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
-//     if (!response.ok) {
-//       throw new Error('Network response was not ok')
+// new Chart = {
+//   name:'Barchart' ,
+//   components: {Bar},
+//   data: () => ({
+//     loaded:false,
+//     chartData: null
+//   }),
+// };
+
+// (async function() {
+//   const data = [
+//     { year: 2010, count: 10 },
+//     { year: 2011, count: 20 },
+//     { year: 2012, count: 15 },
+//     { year: 2013, count: 25 },
+//     { year: 2014, count: 22 },
+//     { year: 2015, count: 30 },
+//     { year: 2016, count: 28 },
+//   ];
+
+// new Chart(
+//     document.getElementById('acquisitions'),
+//     {
+//       type: 'bar',
+//       data: {
+//         labels: data.map(row => row.year),
+//         datasets: [
+//           {
+//             label: 'Acquisitions by year',
+//             data: data.map(row => row.count)
+//           }
+//         ]
+//       }
 //     }
-//     const data = await response.json()
-//     chartData.value.labels = data.map((item) => item.sat_critical_reading_avg_score)
-//     chartData.value.datasets[0].data = data.map((item) => item.sat_math_avg_score)
-//     renderChart()
-//   } catch (error) {
-//     console.error('Error fetching chart data:', error)
-//   }
-// }
-
-// const renderChart = () => {
-//   if (!chartCanvas.value) return
-//   new Bar(chartCanvas.value, {
-//     data: chartData.value
-//   })
-// }
-
-// onBeforeMount(() => {
-//   fetchData()
-// })
+//   );
+// ;
+ 
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+
+</style>
