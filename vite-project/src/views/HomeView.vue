@@ -8,9 +8,8 @@ async function thingy() {
   try {
   let fetchthing = await fetch ("https://data.cityofnewyork.us/resource/f9bf-2cp4.json")
   let chartData = await fetchthing.json();
-  thing.value = chartData;
+  Thing.value = chartData;
   console.log(chartData);
-
 }  
 catch (error) {
   console.log ("error", error)
