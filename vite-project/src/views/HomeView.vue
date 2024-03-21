@@ -1,9 +1,9 @@
 <template>
-  <Bar :data="thing"></Bar>
+  <Bar  v-if="loaded" :data="chartData"></Bar>
 </template>
 
 <script setup>
-import { ref, onBeforeMount, onMounted } from 'vue'
+import { ref, onBeforeMount, onMounted, } from 'vue'
 import { Bar } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -29,10 +29,31 @@ async function thingy () {
 catch (error) {
   console.log ("error", error)
 }}
+
 onBeforeMount(() =>{
     thingy();
 });
 
+// new Chart {
+//   name; 'BarChart',
+//   components; {Bar},
+//   data: () => ({
+//     loaded: false,
+//     chartData: null
+//   }),
+//   async onMounted (){
+//     this.loaded = false,
+
+//     try {
+//       const {userlist} = await thingy
+//       this.chartData = userlist
+//       this.loaded = true
+//     }
+//     catch (e){
+//       console.error(e)
+//     }
+//   }
+// };
 // new Chart = {
 //   name:'Barchart' ,
 //   components: {Bar},
