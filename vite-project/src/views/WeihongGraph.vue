@@ -33,10 +33,14 @@ async function thingy() {
       english: englishscores,
       datasets: [
         {
-          label: 'SAT SCORES',
+          label: 'MATH SCORES',
           backgroundColor: 'blue',
           data: mathscores,
-          data: englishscores
+        },
+        {
+          label: 'ENGLISH SCORES',
+          backgroundColor: 'green',
+          data:englishscores,
         }
       ]
     }
