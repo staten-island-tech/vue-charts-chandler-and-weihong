@@ -24,20 +24,20 @@ const loaded = ref(false)
 
 async function thingy() {
   try {
-    let fetchthing = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
-    let putasjson = await fetchthing.json()
+    const fetchthing = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
+    const putasjson = await fetchthing.json()
     const mathscores = putasjson.map((item) => item.sat_math_avg_score)
     const englishscores = putasjson.map((items) => items.sat_critical_reading_avg_score)
     chartData.value = {
       labels: mathscores,
-      english: englishscores,
       datasets: [
         {
-          label: 'SAT SCORES',
+          label: 'Math',
           backgroundColor: 'blue',
           data: mathscores,
-          data: englishscores
-        }
+          data: englishscores,
+        },
+
       ]
     }
     loaded.value = true
