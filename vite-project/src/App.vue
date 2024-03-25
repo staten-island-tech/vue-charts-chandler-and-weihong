@@ -8,7 +8,7 @@ import { RouterLink, RouterView } from 'vue-router'
     <div class="wrapper">
       <nav>
         <RouterLink to="/">BarChart</RouterLink>
-        <RouterLink to="/about">Graph 2</RouterLink>
+        <RouterLink to="/about">Scatter</RouterLink>
       </nav>
     </div>
   </header>
