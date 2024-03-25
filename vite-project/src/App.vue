@@ -1,5 +1,19 @@
+<script setup>
+import { RouterLink, RouterView } from 'vue-router'
+</script>
+
 <template>
-  <RouterView></RouterView>
+  <header>
+    <BarChart />
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Graph 1</RouterLink>
+        <RouterLink to="/about">Graph 2</RouterLink>
+      </nav>
+    </div>
+  </header>
+
+  <RouterView />
 </template>
 
 <script setup>
