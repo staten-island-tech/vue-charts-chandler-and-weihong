@@ -28,9 +28,9 @@ async function thingy() {
     const putasjson = await fetchthing.json()
     const mathscores = putasjson.map((item) => item.sat_math_avg_score)
     const englishscores = putasjson.map((items) => items.sat_critical_reading_avg_score)
+    const dbn = putasjson.map((items) => items.dbn)
     chartData.value = {
-      labels: mathscores,
-      english: englishscores,
+      labels: dbn,
       datasets: [
         {
           label: 'MATH SCORES',
