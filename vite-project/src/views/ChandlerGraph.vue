@@ -18,9 +18,13 @@ async function Getter() {
   data: data,
   options: {
     scales: {
-      x: {
+      English: {
         type: 'linear',
         position: 'bottom'
+      },
+      Math: {
+        type: 'linear',
+        position: 'top'
       }
     }
   }
