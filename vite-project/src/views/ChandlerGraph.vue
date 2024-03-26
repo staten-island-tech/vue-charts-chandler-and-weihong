@@ -13,11 +13,23 @@ async function Getter() {
     const myjson = await retrieve.json()
     const mathscores = myjson.map((item) => item.sat_math_avg_score)
     const englishscores = myjson.map((items) => items.sat_critical_reading_avg_score)
-  
+    chartData.value = {
+  type: 'scatter',
+  data: data,
+  options: {
+    scales: {
+      x: {
+        type: 'linear',
+        position: 'bottom'
+      }
+    }
+  }
+};
 
 } catch (error) {
     console.log('error', error)
   }
+}
 </script>
 
 <style scoped>

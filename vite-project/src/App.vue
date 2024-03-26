@@ -1,5 +1,6 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
+import ChandlerGraph from './views/ChandlerGraph.vue';
 </script>
 
 <template>
