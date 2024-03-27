@@ -5,12 +5,11 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
-import chandler from './ChandlerGraph.vue'
 
 const app = createApp(App)
+
 
 app.use(createPinia())
 app.use(router)
 
 app.mount('#app')
-chandler.mount('#chandler')
