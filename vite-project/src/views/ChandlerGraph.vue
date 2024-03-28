@@ -1,6 +1,6 @@
 <template>
     <div>
-<Scatter v-if="loaded" :data="chartData"></Scatter>
+<Scatter :data="chartData"></Scatter>
     </div>
 </template>
 
@@ -34,6 +34,7 @@ async function Getter() {
     console.log('error', error)
   }
 }
+Getter();
 </script>
 
 <style scoped>

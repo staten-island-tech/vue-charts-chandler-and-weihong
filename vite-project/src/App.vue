@@ -6,7 +6,7 @@ import ChandlerGraph from './views/ChandlerGraph.vue';
 <template>
   <header>
     <BarChart />
-
+    
   </header>
 
   <RouterView />
