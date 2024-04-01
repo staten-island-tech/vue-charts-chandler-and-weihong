@@ -30,4 +30,31 @@ onBeforeMount(() => {
 })
 </script>
 
-<style scoped></style>
+<style scoped>
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.card {
+  height: 100px;
+  width: 15vw;
+  background-color: rgba(65, 65, 150, 0.6);
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  margin-right: 100px;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.title {
+  font-size: 3rem;
+  text-align: center;
+}
+</style>
