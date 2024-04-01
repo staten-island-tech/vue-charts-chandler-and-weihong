@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import about from '../views/AboutView.vue'
+import ChandlerGraph from '../views/ChandlerGraph.vue'
 import Pageload from '@/views/Pageload.vue'
 import WeihongGraph from '@/views/WeihongGraph.vue'
 
@@ -19,10 +19,7 @@ const router = createRouter({
     {
       path: '/Graph2',
       name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/ChandlerGraph.vue')
+      component: ChandlerGraph
     }
   ]
 })
