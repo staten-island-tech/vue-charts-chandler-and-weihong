@@ -7,8 +7,9 @@ import { RouterLink, RouterView } from 'vue-router'
     <BarChart />
     <div class="wrapper">
       <nav>
-        <RouterLink to="/">BarChart</RouterLink>
-        <RouterLink to="/about">Scatter</RouterLink>
+        <RouterLink to="/">Pageload</RouterLink>
+        <RouterLink to="/graph1">Graph 1</RouterLink>
+        <RouterLink to="/Graph2">Graph 2</RouterLink>
       </nav>
     </div>
   </header>
@@ -16,10 +17,4 @@ import { RouterLink, RouterView } from 'vue-router'
   <RouterView />
 </template>
 
-<script setup>
-
-</script>
-
-<style scoped>
-
-</style>
+<style scoped></style>

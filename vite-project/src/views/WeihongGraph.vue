@@ -35,12 +35,12 @@ async function thingy() {
         {
           label: 'MATH SCORES',
           backgroundColor: 'blue',
-          data: mathscores,
+          data: mathscores
         },
         {
           label: 'ENGLISH SCORES',
           backgroundColor: 'green',
-          data:englishscores,
+          data: englishscores
         }
       ]
     }
@@ -55,6 +55,4 @@ onBeforeMount(() => {
 })
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
