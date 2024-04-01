@@ -1,16 +1,23 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import about from '../views/AboutView.vue'
+import Pageload from '@/views/Pageload.vue'
+import WeihongGraph from '@/views/WeihongGraph.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      name: 'graph1',
+      component: WeihongGraph
     },
     {
-      path: '/about',
+      path: '/Graph1',
+      name: 'pageload',
+      component: Pageload
+    },
+    {
+      path: '/Graph2',
       name: 'about',
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
