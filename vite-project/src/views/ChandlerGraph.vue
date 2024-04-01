@@ -1,41 +1,71 @@
 <template>
-    <div>
-<Scatter v-if="loaded" :data="chartData"></Scatter>
-    </div>
+  <div>
+    <Line v-if="loaded" :data="chartData"></Line>
+  </div>
 </template>
 
 <script setup>
-import { Scatter } from 'vue-chartjs';
+import { ref, onBeforeMount } from 'vue'
+import { Line } from 'vue-chartjs'
+import { Chart } from 'chart.js/auto'
+import {
+  Chart as ChartJS,
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  LineController,
+  LineElement
+} from 'chart.js/auto'
 
-async function Getter() {
+Chart.register(
+  Title,
+  Tooltip,
+  Legend,
+  CategoryScale,
+  LinearScale,
+  LineController,
+  LineElement,
+  LineElement
+)
+
+const chartData = ref(null)
+const loaded = ref(false)
+
+async function fetchData() {
   try {
-    const retrieve = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
-    const myjson = await retrieve.json()
-    const mathscores = myjson.map((item) => item.sat_math_avg_score)
-    const englishscores = myjson.map((items) => items.sat_critical_reading_avg_score)
-    chartData.value = {
-  type: 'scatter',
-  data: data,
-  options: {
-    scales: {
-      English: {
-        type: 'linear',
-        position: 'bottom'
-      },
-      Math: {
-        type: 'linear',
-        position: 'top'
-      }
-    }
-  }
-};
+    const response = await fetch('https://data.cityofnewyork.us/resource/f9bf-2cp4.json')
+    const data = await response.json()
+    const dbn = data.map((item) => item.dbn)
+    const mathScores = data.map((item) => item.sat_math_avg_score)
+    const englishScores = data.map((item) => item.sat_critical_reading_avg_score)
 
-} catch (error) {
-    console.log('error', error)
+    chartData.value = {
+      labels: dbn,
+      datasets: [
+        {
+          label: 'MATH SCORES',
+          borderColor: 'red',
+          data: mathScores
+        },
+        {
+          label: 'ENGLISH SCORES',
+          borderColor: 'blue',
+          data: englishScores
+        }
+      ]
+    }
+
+    loaded.value = true
+  } catch (error) {
+    console.error('Error fetching data:', error)
   }
 }
+
+onBeforeMount(() => {
+  fetchData()
+})
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

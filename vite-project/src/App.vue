@@ -1,20 +1,20 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import ChandlerGraph from './views/ChandlerGraph.vue';
 </script>
 
 <template>
   <header>
-    <BarChart />
 
+    <div class="wrapper">
+      <nav>
+        <RouterLink to="/">Graph 1</RouterLink>
+        <RouterLink to="/about">Graph 2</RouterLink>
+      </nav>
+    </div>
   </header>
 
   <RouterView />
 </template>
-
-<script setup>
-
-</script>
 
 <style scoped>
 
