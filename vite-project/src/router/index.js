@@ -8,13 +8,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'graph1',
-      component: WeihongGraph
+      name: 'pageload',
+      component: Pageload
     },
     {
       path: '/Graph1',
-      name: 'pageload',
-      component: Pageload
+      name: 'graph2',
+      component: WeihongGraph
     },
     {
       path: '/Graph2',

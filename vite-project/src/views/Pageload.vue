@@ -1,10 +1,12 @@
 <template>
-  <div>
-    <div v-if="loaded">
-      <div v-for="(item, index) in data" :key="index">
-        <div>{{ item.dbn }}</div>
-        <div>Math Score: {{ item.sat_math_avg_score }}</div>
-        <div>English Score: {{ item.sat_critical_reading_avg_score }}</div>
+  <div :class="containerClass">
+    <div :class="listClass">
+      <div v-if="loaded">
+        <div v-for="(item, index) in data" :key="index" :class="cardClass">
+          <div>{{ item.dbn }}</div>
+          <div>Math Score: {{ item.sat_math_avg_score }}</div>
+          <div>English Score: {{ item.sat_critical_reading_avg_score }}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -12,7 +14,9 @@
 
 <script setup>
 import { ref, onBeforeMount } from 'vue'
-
+const listClass = ref('list')
+const containerClass = ref('container')
+const cardClass = ref('card')
 const data = ref(null)
 const loaded = ref(false)
 
